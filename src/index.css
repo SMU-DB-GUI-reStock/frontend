@@ -11,29 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-button{
-  display: inline-block;
-}
-
-h2, label{
-  color: gray;
-}
-
-label{
-  margin: 20px;
-}
-
-input{
-  margin-bottom: 10px;
-}
-
-button{
-  background: rgb(174, 179, 221);
-  color: white;
-  font-size: 14px;
-  border-radius: 6px;
-  padding: 12px 28px;
-  margin: 15px;
-
-}
