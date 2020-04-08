@@ -1,23 +1,26 @@
 import React, {Component} from 'react';
 import './App.css';
+import {DepartmentsList} from './DepartmentsList';
+import {Login} from './Login';
+import { ProductsList } from './ProductsList';
+import {SalesList} from './SalesList';
 
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src="https://amznsellertools.com/wp-content/uploads/Restock-Pro-Logo.png"></img>
-        <h2>Log in</h2>
-        <label HTMLfor="username">Username</label>
-        <input name="username" type="text"></input>
-        <label HTMLfor="password">Password</label>
-        <input name="password" type="password"></input>
-        <button id="logIn">Log In</button>
-        <button id="forgotPassword">Forgot Password?</button>
-      </header>
-    </div>
-  );
+class App extends Component{
+  render(){
+    return (
+      <Router>
+            {/*alias*/}
+            <Switch>
+              <Route exact path="/" component={Login}/>
+              {/* <Route path="/products" component={ProductsList}/> TODO*/}
+              {/* <Route path="/departments" component={DepartmentsList} TODO*/}
+              {/* <Route path="/sales" component={SalesList} TODO*/} 
+            </Switch>
+          </Router>
+    );
+  }
 }
 
 export default App;
