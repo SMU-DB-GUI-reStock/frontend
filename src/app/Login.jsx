@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import Logo from '../images/logo.png';
+import './Login.css';
 export class Login extends React.Component{
     // state = {
     //     productTypes: [new Product(1, "Dairy", "Milk", 6.99)]
@@ -9,7 +10,7 @@ export class Login extends React.Component{
         return(<>
             <div className="App">
                 <header className="App-header">
-                <img src="https://amznsellertools.com/wp-content/uploads/Restock-Pro-Logo.png"></img>
+                <img src={Logo}></img>
                 <h2>Log in</h2>
                 <form>
                     <div className="form-group">
