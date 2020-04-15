@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Logo from '../images/logo.png';
 import './Login.css';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 export class Login extends React.Component{
     // state = {
     //     productTypes: [new Product(1, "Dairy", "Milk", 6.99)]
@@ -26,13 +27,19 @@ export class Login extends React.Component{
                             className="btn btn-primary">
                             Log In
                         </button>
-                    
+                
+                        
                 </form>
+<<<<<<< HEAD
                 </div>
+=======
+                <Link to='/ForgotPassword'>
+>>>>>>> d5c13b7f8be419a575255a267cde46b98dc7f526
                 <button id="forgotPassword" 
                     className="btn btn-secondary" >
                     Forgot Password?
                 </button>
+                </Link>
                 </header>
             </div>
             {/* <ProductsList productTypes = {this.state.productTypes}/> */}
