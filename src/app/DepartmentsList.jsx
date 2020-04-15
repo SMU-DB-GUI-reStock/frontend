@@ -1,3 +1,4 @@
+//This function will generate a list of departments
 import React from 'react';
 import {Department, User} from '../models';
 

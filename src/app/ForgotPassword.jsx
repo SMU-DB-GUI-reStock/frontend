@@ -1,3 +1,5 @@
+//This component is a page that has contact info for user if they forgot their password
+
 import React from 'react';
 import './ForgotPassword.css';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';

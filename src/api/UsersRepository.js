@@ -1,20 +1,20 @@
-//these are all the http requests related to departments 
+//these are all the http requests related to users
 import axios from 'axios';
 
-export class DepartmentRepository{
-    
+export class DepartmentRepository{  
+
     url = 'localhost:3000'
 
     config = {
         
     };
 
-    //GET /departments
-    getDepartments(params){
+   //GET /users
+    getUsers(params){
         var config = this.config;
         config.params = params;
         return new Promise((resolve, reject)=>{
-            axios.get(`${this.url}/departments`, config)
+            axios.get(`${this.url}/users`, config)
                 .then(x=>resolve(x.data))
                 .catch(x=>{
                     alert(x);
@@ -23,23 +23,10 @@ export class DepartmentRepository{
         });
     }
 
-
-    //GET /departments/{id}
-    getDepartment(id){
+    //GET /users/{id}
+    getUser(id){
         return new Promise((resolve, reject)=>{
-            axios.get(`${this.url}/departments/${id}`)
-                .then(x=>resolve(x.data))
-                .catch(x=>{
-                    alert(x);
-                    reject(x);
-                })
-        })
-    }
-
-    //DELETE /departments/{id}
-    deleteDepartment(id){
-        return new Promise((resolve, reject)=>{
-            axios.delete(`${this.url}/departments/${id}`)
+            axios.get(`${this.url}/users/${id}`)
                 .then(x=>resolve(x.data))
                 .catch(x=>{
                     alert(x);
@@ -49,18 +36,15 @@ export class DepartmentRepository{
     }
 
 
-
-
-
-    //this needs to go with product http requests
-    // getProduct(id){
-    //     return new Promise((resolve, reject)=>{
-    //         axios.get(`${this.url}/inventory/${id}`)
-    //             .then(x=>resolve(x.data))
-    //             .catch(x=>{
-    //                 alert(x);
-    //                 reject(x);
-    //             })
-    //     })
-    // }
+    //DELETE /users/{id}
+    deleteUser(id){
+        return new Promise((resolve, reject)=>{
+            axios.delete(`${this.url}/users/${id}`)
+                .then(x=>resolve(x.data))
+                .catch(x=>{
+                    alert(x);
+                    reject(x);
+                })
+        })
+    }
 }

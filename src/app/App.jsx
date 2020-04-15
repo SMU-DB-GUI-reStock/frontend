@@ -1,3 +1,5 @@
+//This is the base of our app. It directs traffic through the multiple routes on the site.
+
 import React, {Component} from 'react';
 import './App.css';
 import {DepartmentsDashboard} from './DepartmentsDashboard';

@@ -1,3 +1,5 @@
+//This is the main landing page of the app that gives the user options
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Logo from '../images/logo.png';

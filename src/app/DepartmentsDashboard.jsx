@@ -1,7 +1,10 @@
+//This serves as the container of the landing page for Departments. It will
+//hold the department list and admin tools to edit departments.
+
 import React from 'react';
 import {DepartmentsList } from './DepartmentsList';
 import {DepartmentRepository} from './../api';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 
 export class DepartmentsDashboard extends React.Component{
@@ -38,7 +41,9 @@ export class DepartmentsDashboard extends React.Component{
             </Link>
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><Link to="/Home">Home</Link></li>
+                    <li className="breadcrumb-item">
+                        <Link to="/Home">Home</Link>
+                    </li>
                     <li className="breadcrumb-item active" aria-current="page">Departments</li>
                 </ol>
             </nav>

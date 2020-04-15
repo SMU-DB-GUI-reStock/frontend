@@ -56,8 +56,3 @@ import {ProductType, Product} from '../models';
 //         </div>
 //     </>
 // }
-
-// this.product_id = product_id;
-// this.dept_id = dept_id
-// this.product_name = product_name;
-// this.product_price = product_price;
