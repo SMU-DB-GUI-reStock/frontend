@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
-import {DepartmentsList} from './DepartmentsList';
+import {DepartmentsDashboard} from './DepartmentsDashboard';
 import {Login} from './Login';
 import { ProductsList } from './ProductsList';
 import {SalesList} from './SalesList';
 import {ForgotPassword} from './ForgotPassword';
+import {Home} from './Home';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -16,9 +17,10 @@ class App extends Component{
             <Switch>
               <Route exact path="/" component={Login}/>
               <Route path='/ForgotPassword' exact={true} component={ ForgotPassword } /> 
-              {/* <Route path="/products" component={ProductsList}/> TODO*/}
-              {/* <Route path="/departments" component={DepartmentsList} TODO*/}
-              {/* <Route path="/sales" component={SalesList} TODO*/} 
+              <Route path="/Home" component={Home}/>
+              {/* <Route path="/Products" component={Products}/>  */}
+              <Route exact path="/Departments" component={DepartmentsDashboard}/>
+              {/* <Route path="/Sales" component={SalesList} TODO*/} 
             </Switch>
           </Router>
     );

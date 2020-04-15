@@ -19,5 +19,7 @@ export class ForgotPassword extends React.Component{
         </div>
       );
     }
-  }
+
+    
+}
 
