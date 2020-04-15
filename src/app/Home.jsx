@@ -9,7 +9,6 @@ export class Home extends React.Component{
                 <Link to="/">
                     <button className="btn float-right">Logout</button>
                 </Link>
-       
             </nav>
             <div className="jumbotron">
                 <img src={Logo} style={{width:'50%'}}></img>

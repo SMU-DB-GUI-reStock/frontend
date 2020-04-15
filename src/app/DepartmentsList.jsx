@@ -10,7 +10,6 @@ export const DepartmentsList = props =>{
                 <tr> 
                     <th>Department</th>
                     <th>Department Manager</th>
-                    <th>Number of Employees</th>
                     <th>&nbsp;</th>
                 </tr>
             </thead>
@@ -20,12 +19,10 @@ export const DepartmentsList = props =>{
                     <tr key={department.dept_id}>
                         <td>{department.dept_name}</td>
                         <td>{department.dept_mngr}</td>
-                        <td>0</td>
                         <td>
                             <button type="button"
-                            className="btn btn-sm btn-primary"
-                            onClick={e=> props.viewEmployees(department.dept_id)}>
-                                v
+                            className="btn btn-sm btn-primary">
+                                View Employees
                             </button>
                         </td>
                     </tr>)

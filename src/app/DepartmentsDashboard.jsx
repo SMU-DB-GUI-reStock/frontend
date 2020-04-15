@@ -1,12 +1,32 @@
 import React from 'react';
 import {DepartmentsList } from './DepartmentsList';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import {DepartmentRepository} from './../api';
+import { BrowserRouter as Link } from 'react-router-dom';
+
+
 export class DepartmentsDashboard extends React.Component{
 
+    departmentRepository = new DepartmentRepository();
 
-    viewEmployees(dept_id){
-        // TODO: display list of all employees with that dept_id
-    
+    state = {
+        departments: []
+    };
+
+    // viewEmployees(dept_id){
+    //     // TODO: display list of all employees with that dept_id
+    //     this.departmentRepository.getEmployees(dept_id)
+    //         .then(employees =>{
+    //             employees.forEach(employee =>{
+    //                 let 
+    //             })
+    //         })
+    // }
+
+    getDepartments(params){
+        this.departmentRepository.getDepartments(params)
+            .then(departments=>{
+                this.setState({departments});
+            });
     }
 
     render(){
@@ -17,20 +37,19 @@ export class DepartmentsDashboard extends React.Component{
                     <button className="btn float-right">Logout</button>
             </Link>
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><Link to="/Home">Home</Link></li>
-                    <li class="breadcrumb-item active" aria-current="page">Departments</li>
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><Link to="/Home">Home</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page">Departments</li>
                 </ol>
             </nav>
-
         
             <h1>Departments</h1>
-           
-            {/* <DepartmentsList departments={this.state.departments} viewEmployees={dept_id=>this.viewEmployees(dept_id)}/> */}
+            <DepartmentsList departments={this.state.departments}/>
+             {/* <DepartmentsList departments={this.state.departments} viewEmployees={dept_id=>this.viewEmployees(dept_id)}/> */}
         </>
     }
 
     componentDidMount(){
-        //TODO
+        this.getDepartments();
     }
 }
