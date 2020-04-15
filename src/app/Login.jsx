@@ -11,7 +11,8 @@ export class Login extends React.Component{
             <div className="App">
                 <header className="App-header">
                 <img src={Logo}></img>
-                <h2>Log in</h2>
+    
+                <div>
                 <form>
                     <div className="form-group">
                         <label HTMLfor="username">Username</label>
@@ -27,6 +28,7 @@ export class Login extends React.Component{
                         </button>
                     
                 </form>
+                </div>
                 <button id="forgotPassword" 
                     className="btn btn-secondary" >
                     Forgot Password?

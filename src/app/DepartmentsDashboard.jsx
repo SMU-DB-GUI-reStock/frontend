@@ -13,7 +13,8 @@ export class DepartmentsDashboard extends React.Component{
 
     render(){
         return<>
-            <DepartmentsList departments={this.state.departments} viewEmployees={dept_id=>this.viewEmployees(dept_id)}/>
+            <h1>Departments</h1>
+            {/* <DepartmentsList departments={this.state.departments} viewEmployees={dept_id=>this.viewEmployees(dept_id)}/> */}
         </>
     }
 
