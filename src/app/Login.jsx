@@ -30,11 +30,11 @@ export class Login extends React.Component{
                 
                         
                 </form>
-<<<<<<< HEAD
+
                 </div>
-=======
+
                 <Link to='/ForgotPassword'>
->>>>>>> d5c13b7f8be419a575255a267cde46b98dc7f526
+
                 <button id="forgotPassword" 
                     className="btn btn-secondary" >
                     Forgot Password?
