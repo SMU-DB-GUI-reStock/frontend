@@ -8,6 +8,8 @@ import { ProductsList } from './ProductsList';
 import {SalesList} from './SalesList';
 import {ForgotPassword} from './ForgotPassword';
 import {Home} from './Home';
+import { ProductsDashboard } from './ProductsDashboard';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component{
@@ -17,9 +19,9 @@ class App extends Component{
             {/*alias*/}
             <Switch>
               <Route exact path="/" component={Login}/>
-              <Route path='/ForgotPassword' exact={true} component={ ForgotPassword } /> 
+              <Route exact path='/ForgotPassword' component={ ForgotPassword } /> 
               <Route path="/Home" component={Home}/>
-              {/* <Route path="/Products" component={Products}/>  */}
+              <Route exact path="/Products" component={ ProductsDashboard }/>  
               <Route exact path="/Departments" component={DepartmentsDashboard}/>
               {/* <Route path="/Sales" component={SalesList} TODO*/} 
             </Switch>
