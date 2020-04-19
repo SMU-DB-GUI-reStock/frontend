@@ -8,7 +8,6 @@ import { ProductsList } from './ProductsList';
 import {SalesList} from './SalesList';
 import {ForgotPassword} from './ForgotPassword';
 import {Home} from './Home';
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component{
