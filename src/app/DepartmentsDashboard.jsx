@@ -3,7 +3,9 @@
 
 import React from 'react';
 import {DepartmentsList } from './DepartmentsList';
-import {DepartmentRepository} from './../api';
+
+import {DepartmentRepository, EmployeeRepository} from './../api';
+
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 
@@ -26,17 +28,10 @@ export class DepartmentsDashboard extends React.Component{
     //         })
     // // }
 
-    // getDepartments(params){
-    //     this.departmentRepository.getDepartments(params)
-    //         .then(departments=>{
-    //             this.setState({departments});
-    //         });
-    // }
+  
 
     render(){
         return<>
-
-            {/*nav bar*/}
             <Link to="/">
                     <button className="btn float-right">Logout</button>
             </Link>
@@ -50,16 +45,14 @@ export class DepartmentsDashboard extends React.Component{
             </nav>
         
             <h1>Departments</h1>
-            <DepartmentsList departments={this.state.departments} employeeRepository={this.state.employeeRepository}/>
-             {/* <DepartmentsList departments={this.state.departments} viewEmployees={dept_id=>this.viewEmployees(dept_id)}/> */}
+            <DepartmentsList departments={this.state.departments}/>
         </>
     }
 
     componentDidMount(){
         this.departmentRepository.getDepartments()
-            .then(x=>{
-                this.setState(this.state.departments = x.data);
-            })
-       
+            .then(departments=> {
+                this.setState(this.state.departments = departments.data);
+            });
     }
 }

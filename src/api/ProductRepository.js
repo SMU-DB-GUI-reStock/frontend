@@ -1,7 +1,7 @@
 //these are all the http requests related to departments 
 import axios from 'axios';
 
-export class EmployeeRepository{
+export class ProductRepository{
     
     url = 'http://localhost:8000'
 
@@ -9,11 +9,11 @@ export class EmployeeRepository{
         
     };
 
-    //GET /employees
-    getEmployees(){
+    //GET /products
+    getProducts(){
         var config = this.config;
         return new Promise((resolve, reject)=>{
-            axios.get(`${this.url}/employees`, config)
+            axios.get(`${this.url}/products`, config)
                 .then(x=>resolve(x.data))
                 .catch(x=>{
                     alert(x);
@@ -22,14 +22,16 @@ export class EmployeeRepository{
         });
     }
 
-    getEmployee(id){
+    getProductTypes(){
+        var config = this.config;
         return new Promise((resolve, reject)=>{
-            axios.get(`${this.url}/users/${id}`)
+            axios.get(`${this.url}/product_types`, config)
                 .then(x=>resolve(x.data))
                 .catch(x=>{
                     alert(x);
                     reject(x);
-                })
-        })
+                });
+        });
     }
+
 }
