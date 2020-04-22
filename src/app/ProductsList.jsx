@@ -23,7 +23,9 @@ export const ProductsList = props =>{
                                 {product.product_type_id}
                             </td>
                             <td>
-                                {product.product_type_name}
+                                <Link to={'Product/' + product.product_type_id }>
+                                    {product.product_type_name}
+                                </Link>
                             </td>
                             <td>
                                 ${product.price}.00

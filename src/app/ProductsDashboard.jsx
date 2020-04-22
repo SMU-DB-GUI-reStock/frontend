@@ -19,11 +19,11 @@ export class ProductsDashboard extends React.Component{
             <ol className="breadcrumb border border-0 rounded mb-0">
                 <li className="breadcrumb-item"><a href="/Home">Home</a></li> 
                 
-                <li className="breadcrumb-item active" aria-current="page"> Products </li> 
+                <li className="breadcrumb-item active" aria-current="page"> Products List </li> 
             </ol>
             
 
-            <h1>Products</h1>
+            <h1 style={{padding: 10}}>What we carry:</h1>
             <ProductsList products={this.state.products}/>
         </>
     }

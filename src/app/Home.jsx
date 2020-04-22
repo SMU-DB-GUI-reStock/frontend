@@ -26,7 +26,7 @@ export class Home extends React.Component{
                             </Link>
                         </div>
                         <div className="col">
-                            <Link to="/Products">
+                            <Link to="/ProductsList">
                                 <button className="btn btn-block btn-primary btn-lg">View Inventory</button>
                             </Link>
                         </div>
