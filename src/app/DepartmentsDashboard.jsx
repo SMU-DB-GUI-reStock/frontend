@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 export class DepartmentsDashboard extends React.Component{
 
     departmentRepository = new DepartmentRepository();
+    employeeRepository = new EmployeeRepository();
 
     state = {
         departments: []
@@ -23,14 +24,14 @@ export class DepartmentsDashboard extends React.Component{
     //                 let 
     //             })
     //         })
-    // }
+    // // }
 
-    getDepartments(params){
-        this.departmentRepository.getDepartments(params)
-            .then(departments=>{
-                this.setState({departments});
-            });
-    }
+    // getDepartments(params){
+    //     this.departmentRepository.getDepartments(params)
+    //         .then(departments=>{
+    //             this.setState({departments});
+    //         });
+    // }
 
     render(){
         return<>
@@ -49,12 +50,16 @@ export class DepartmentsDashboard extends React.Component{
             </nav>
         
             <h1>Departments</h1>
-            <DepartmentsList departments={this.state.departments}/>
+            <DepartmentsList departments={this.state.departments} employeeRepository={this.state.employeeRepository}/>
              {/* <DepartmentsList departments={this.state.departments} viewEmployees={dept_id=>this.viewEmployees(dept_id)}/> */}
         </>
     }
 
     componentDidMount(){
-        this.getDepartments();
+        this.departmentRepository.getDepartments()
+            .then(x=>{
+                this.setState(this.state.departments = x.data);
+            })
+       
     }
 }

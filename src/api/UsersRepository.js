@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export class DepartmentRepository{  
 
-    url = 'localhost:3000'
+    url = 'http://localhost:8000'
 
     config = {
         

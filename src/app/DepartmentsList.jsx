@@ -1,8 +1,11 @@
 //This function will generate a list of departments
 import React from 'react';
 import {Department, User} from '../models';
+import {EmployeeRepository} from './../api';
 
 export const DepartmentsList = props =>{
+    employeeRepository = new EmployeeRepository();
+
     return <>
 
     <div className="container">
@@ -19,7 +22,7 @@ export const DepartmentsList = props =>{
                     props.departments.map(department => 
                     <tr key={department.dept_id}>
                         <td>{department.dept_name}</td>
-                        <td>{department.dept_mngr}</td>
+                        <td>{this.employeeRepository.getEmployee(department.dept_mngr)}</td>
                         <td>
                             <button type="button"
                             className="btn btn-sm btn-primary">
