@@ -1,4 +1,4 @@
-//This component is a page that has contact info for user if they forgot their password
+//This component is a page that displays information regarding a product
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
@@ -21,6 +21,8 @@ export class ProductDisplay extends React.Component{
             </ol>
 
         <h1>Product Display:</h1>
+
+        <h5>{this.product_name}</h5>
         </div>
         
       );
