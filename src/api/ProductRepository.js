@@ -9,7 +9,7 @@ export class ProductRepository{
         
     };
 
-    // //GET /products
+    // //GET /products()
     getProducts(params){
         var config = this.config;
         config.params = params;
@@ -23,6 +23,7 @@ export class ProductRepository{
         });
     }
 
+    //GET /productTypes()
     getProductTypes(params){
         var config = this.config;
         config.params = params;
@@ -35,5 +36,18 @@ export class ProductRepository{
                 });
         });
     }
+
+    //POST productType
+    addProductTypes(product_type){
+        return new Promise((resolve, reject) => {
+            axios.post(`${this.url}`, product_type, this.config)
+                .then(x => resolve(x.data))
+                .catch(x => {
+                    alert(x); // handle error
+                    reject(x);
+                });
+        });
+    }
+
 
 }

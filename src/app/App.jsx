@@ -10,8 +10,9 @@ import {ForgotPassword} from './ForgotPassword';
 import {Home} from './Home';
 import { ProductsDashboard } from './ProductsDashboard';
 import { ProductDisplay } from './ProductDisplay';
-
+import {ItemEditor} from './ItemEditor';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { ItemEditorDashboard } from './ItemEditorDashboard';
 
 class App extends Component{
   render(){
@@ -20,6 +21,7 @@ class App extends Component{
             {/*alias*/}
             <Switch>
               <Route exact path="/" component={Login}/>
+              <Route exact path="/addItem" component={ItemEditorDashboard}/>
               <Route exact path='/ForgotPassword' component={ ForgotPassword } /> 
               <Route path="/Home" component={Home}/>
               <Route exact path="/ProductsList" component={ ProductsDashboard }/>  
