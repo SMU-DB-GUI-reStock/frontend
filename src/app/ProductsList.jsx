@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {ProductType, Product} from '../models';
+import { ProductDisplay } from './ProductDisplay';
 
 export const ProductsList = props =>{
     return <> 
@@ -23,9 +24,7 @@ export const ProductsList = props =>{
                                 {product.product_type_id}
                             </td>
                             <td>
-                                <Link to={'Products/' + product.product_type_id }>
                                     {product.product_type_name}
-                                </Link>
                             </td>
                             <td>
                                 ${product.price}.00
@@ -37,10 +36,12 @@ export const ProductsList = props =>{
                                 Quantity
                             </td>
                             <td>
-                                <button type="button"
-                                className="btn btn-primary btn-sm">
-                                    View Full Inventory
-                                </button>
+                                <Link to={'Products/' + product.product_type_id} section = {3}>
+                                    <button type="button"
+                                    className="btn btn-primary btn-sm">
+                                        View Full Inventory
+                                    </button>
+                                </Link>
                             </td>
                         </tr>
                     

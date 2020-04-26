@@ -32,6 +32,7 @@ export class ProductsDashboard extends React.Component{
             
             <ProductSearch onSearch={params=>this.onSearch(params)} />
             <h1 style={{padding: 10}}>What we carry:</h1>
+            
             <ProductsList products={this.state.products}/>
         </>
     }
