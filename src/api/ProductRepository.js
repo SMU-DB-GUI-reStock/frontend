@@ -9,11 +9,12 @@ export class ProductRepository{
         
     };
 
-    //GET /products
-    getProducts(){
+    // //GET /products
+    getProducts(params){
         var config = this.config;
+        config.params = params;
         return new Promise((resolve, reject)=>{
-            axios.get(`${this.url}/products`, config)
+            axios.get(`${this.url}/products/`, config)
                 .then(x=>resolve(x.data))
                 .catch(x=>{
                     alert(x);
@@ -22,8 +23,9 @@ export class ProductRepository{
         });
     }
 
-    getProductTypes(){
+    getProductTypes(params){
         var config = this.config;
+        config.params = params;
         return new Promise((resolve, reject)=>{
             axios.get(`${this.url}/product_types`, config)
                 .then(x=>resolve(x.data))

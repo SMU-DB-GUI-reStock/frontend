@@ -4,6 +4,6 @@ export * from './ForgotPassword';
 export * from './Home';
 export * from './DepartmentsDashboard';
 export * from './DepartmentsList';
-
+export * from './ProductSearch';
 export * from './ProductsList';
 export * from './SalesList';
