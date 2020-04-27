@@ -10,10 +10,10 @@ export class SalesDashboard extends React.Component{
         sale: []
     };
 
-    onSearch(params){
-        this.productRepository.getProductTypes(params)
-        .then(products=> {
-            this.setState(this.state.products = products.data);
+    onSearch(id){
+        this.salesRepository.getSales(id)
+        .then(sale=> {
+            this.setState(this.state.sale = sale.data);
         });
     }
 
@@ -33,10 +33,8 @@ export class SalesDashboard extends React.Component{
                 
                 <li className="breadcrumb-item active" aria-current="page"> Sales List </li> 
             </ol>
-            
-            <ProductSearch onSearch={params=>this.onSearch(params)} />
          
-            <h1 style={{padding: 10}}>What we carry:</h1>
+            <h1 style={{padding: 10}}>Sales</h1>
             <SalesList sale={this.state.sale}/>
 
         </>

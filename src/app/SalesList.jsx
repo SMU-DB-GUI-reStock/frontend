@@ -13,32 +13,18 @@ export const SalesList = props =>{
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
                         <th>Sale Date</th>
                         
                     </tr>
                 </thead>
                 <tbody>
-                    {props.products.map(product =>
-                        <tr key={product.product_id}>
+                    {props.sale.map(sale =>
+                        <tr key={sale.sale_id}>
                             <td>
-                                {product.product_type_id}
+                                {sale.sale_id}
                             </td>
                             <td>
-                                <Link to={'Products/' + product.product_type_id }>
-                                    {product.product_type_name}
-                                </Link>
-                            </td>
-                            <td>
-                                ${product.price}.00
-                            </td>
-                            <td>
-                                Quantity
-                            </td>
-                            <td>
-                                ${this.sale.sale_date}
+                                {sale.sale_date}
                             </td>
                         </tr>
                     
