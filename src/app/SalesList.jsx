@@ -12,7 +12,7 @@ export const SalesList = props =>{
             <table className="table table-striped table-condensed">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Sale ID</th>
                         <th>Sale Date</th>
                         
                     </tr>

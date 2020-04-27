@@ -1,10 +1,10 @@
 import React from 'react';
 import {SalesList } from './SalesList';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import {SalesRepository} from './../api';
+import {SaleRepository} from './../api';
 
 export class SalesDashboard extends React.Component{
-    salesRepository = new SalesRepository();
+    salesRepository = new SaleRepository();
 
     state = {
         sale: []

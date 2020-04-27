@@ -11,6 +11,7 @@ import { ProductsDashboard } from './ProductsDashboard';
 import { ProductDisplay } from './ProductDisplay';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ItemEditorDashboard } from './ItemEditorDashboard';
+import { SalesDashboard } from './SalesDashboard';
 
 class App extends Component{
   render(){
@@ -25,7 +26,7 @@ class App extends Component{
               <Route exact path="/ProductsList" component={ ProductsDashboard }/>  
               <Route exact path="/Departments" component={DepartmentsDashboard}/>
               <Route exact path="/Products/:id" component={ ProductDisplay }/>
-              {/* <Route path="/Sales" component={SalesList} TODO*/} 
+              <Route exact path="/Sales" component={SalesDashboard}/>
             </Switch>
           </Router>
     );
