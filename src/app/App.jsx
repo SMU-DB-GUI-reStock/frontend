@@ -4,13 +4,11 @@ import React, {Component} from 'react';
 import './App.css';
 import {DepartmentsDashboard} from './DepartmentsDashboard';
 import {Login} from './Login';
-import { ProductsList } from './ProductsList';
 import {SalesList} from './SalesList';
 import {ForgotPassword} from './ForgotPassword';
 import {Home} from './Home';
 import { ProductsDashboard } from './ProductsDashboard';
 import { ProductDisplay } from './ProductDisplay';
-import {ItemEditor} from './ItemEditor';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ItemEditorDashboard } from './ItemEditorDashboard';
 

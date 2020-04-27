@@ -20,7 +20,7 @@ export class ItemEditor extends React.Component {
         .addProductType(this.state)
         .then(() => {
             alert("Product Added");
-            this.setState({ redirect: '/products' });
+            this.setState({ redirect: '/ProductsList' });
         });
     }
 

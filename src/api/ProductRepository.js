@@ -39,7 +39,6 @@ export class ProductRepository{
 
     //POST productType
     addProductType(product_type){
-        debugger;
         return new Promise((resolve, reject) => {
             axios.post(`${this.url}/product_types`, product_type, this.config)
                 .then(x => resolve(x.data))
@@ -51,4 +50,14 @@ export class ProductRepository{
     }
 
 
+    deleteProductType(product_type_id){
+        return new Promise((resolve, reject) => {
+            axios.delete(`${this.url}/product_types/${product_type_id}`, this.config)
+                .then(x => resolve(x.data))
+                .catch(x => {
+                    alert(x); // handle error
+                    reject(x);
+                });
+        });
+    }
 }
