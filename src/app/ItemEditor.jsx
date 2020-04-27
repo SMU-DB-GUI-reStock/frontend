@@ -9,8 +9,8 @@ export class ItemEditor extends React.Component {
     departmentRepository = new DepartmentRepository();
 
     state = {
-        name: '',
-        department: '',
+        dept_id: '',
+        product_type_name: '',
         price: ''
     };
 
@@ -32,23 +32,23 @@ export class ItemEditor extends React.Component {
             <form className="container">
                 <h1>Add an Item</h1>
                 <div className="form-group">
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="product_type_name">Name</label>
                     <input type="text"
-                        id="name"
-                        name="name"
+                        id="product_type_name"
+                        name="product_type_name"
                         className="form-control"
                         value={this.state.name}
-                        onChange={ e => this.setState({ name: e.target.value }) } />
+                        onChange={ e => this.setState({ product_type_name: e.target.value }) } />
                 </div>
 
                 <div className="col-3">
-                    <label htmlFor="department">Department</label>
+                    <label htmlFor="dept_id">Department</label>
                     <select
-                        name="department"
-                        id="department"
+                        name="dept_id"
+                        id="dept_id"
                         className="form-control"
                         value={this.state.department}
-                        onChange={ e => this.setState({ department: e.target.value })}>
+                        onChange={ e => this.setState({ dept_id: e.target.value })}>
                         <option></option>
                         {this.props.departments.map(department =>
                             <option key={department.dept_id} value={department.dept_id}>{department.dept_name}</option>
@@ -72,43 +72,11 @@ export class ItemEditor extends React.Component {
                         Add New Product
                 </button>
 
-                {/* {
-                    this.state.isEmployee &&
-                        <div className="form-group">
-                            <label htmlFor="departentId">Department</label>
-                            <select id="departentId"
-                                name="departentId"
-                                className="form-control"
-                                value={this.state.departmentId}
-                                onChange={ e => this.setState({ departmentId: e.target.value }) }>
-                                <option></option>
-                                {
-                                    DEPARTMENTS.map((d, i) => <option key={ i } value={ d.id }>{ d.name }</option>)
-                                }
-                            </select>
-                        </div>
-                } */}
-
-{/*             
-                <div>
-                    <button type="button"
-                            className="btn btn-primary btn-block"
-                            onClick={ () => this.onSubmit() }>
-                        Save
-                    </button>
-                    <Link className="btn btn-secondary btn-block" to="/">
-                        Return to List
-                    </Link>
-                </div> */}
                     
             </form>
         </>;
     }
 
     componentDidMount() {
-        // this.departmentRepository.getDepartments()
-        // .then( departments=>{
-        //     this.setState(this.state.departments = departments.data);
-        // });
     }
 }
