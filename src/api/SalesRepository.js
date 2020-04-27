@@ -10,8 +10,9 @@ export class SaleRepository{
    };
  
    //GET /sales
-   getSales(){
+   getSales(id){
        var config = this.config;
+       config.id = id;
        return new Promise((resolve, reject)=>{
            axios.get(`${this.url}/sales`, config)
                .then(x=>resolve(x.data))
@@ -23,8 +24,10 @@ export class SaleRepository{
    }
  
    //GET /sales/{id}
-   getSales(id){
-       return new Promise((resolve, reject)=>{
+   getSale(id){
+        var config = this.config;
+        config.id = id;
+        return new Promise((resolve, reject)=>{
            axios.get(`${this.url}/sales/${id}`)
                .then(x=>resolve(x.data))
                .catch(x=>{
