@@ -3,6 +3,7 @@ import {ProductsList } from './ProductsList';
 import { Redirect, Link } from 'react-router-dom';
 import {ProductRepository} from './../api';
 import { ProductSearch } from './ProductSearch';
+import Logo from '../images/logo.png';
 
 export class ProductsDashboard extends React.Component{
     productRepository = new ProductRepository();
@@ -24,13 +25,14 @@ export class ProductsDashboard extends React.Component{
             return <Redirect to={ this.state.redirect } />
         }
         return<>
+            <img src={Logo} style={{width:'50%'}} alt="restock logo"></img>
             <Link to="/">
                     <button className="btn float-right">Logout</button>
             </Link>
         
             
             <Link to="/addItem">
-                    <button className="btn float-right">+</button>
+                    <button className="btn float-right btn-primary">+</button>
             </Link>
             
             <ol className="breadcrumb border border-0 rounded mb-0">
@@ -40,10 +42,13 @@ export class ProductsDashboard extends React.Component{
             </ol>
             
             <ProductSearch onSearch={params=>this.onSearch(params)} />
-         
+            
             <h1 style={{padding: 10}}>What we carry:</h1>
             
             <ProductsList products={this.state.products}/>
+            <Link to="/Home">
+                    <button type="button" className="btn btn-secondary btn-block">Go back</button>
+            </Link>
 
         </>
     }

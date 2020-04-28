@@ -1,7 +1,7 @@
 import React from 'react';
 import { EmployeeRepository } from '../api';
 import { Redirect, Link } from 'react-router-dom';
-
+import Logo from '../images/logo.png';
 
 export class EmployeeEditor extends React.Component {
 
@@ -30,7 +30,7 @@ export class EmployeeEditor extends React.Component {
             return <Redirect to={ this.state.redirect } />
         }
         return <>
-
+             <img src={Logo} style={{width:'50%'}} alt="restock logo"></img>
             <Link to="/">
                     <button className="btn float-right">Logout</button>
             </Link>
@@ -115,6 +115,9 @@ export class EmployeeEditor extends React.Component {
                         onClick={ () => this.onSubmit() }>
                         Add Employee
                 </button> 
+                <Link to="/Departments">
+                    <button type="button" className="btn btn-secondary btn-block">Go back</button>
+                </Link>
 
                     
             </form>
@@ -123,5 +126,6 @@ export class EmployeeEditor extends React.Component {
 
 
     componentDidMount() {
+
     }
 }

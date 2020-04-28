@@ -20,16 +20,16 @@ export class ProductDisplay extends React.Component{
   }
 
   isExpired(exp){
-  // var currYear = new Date().getFullYear();
-  // var currMonth = new Date().getMonth() + 1;
-  // var currDay = new Date().getDate();
-  // var currDate = currYear + '-' + currMonth + '-' + currDay;
-  // var cutExpDate = exp.slice(0, 10);
-  // if(moment(cutExpDate).isSameOrAfter(currDate)){
-  //   return true;
-  // }
-  // return false;
-  return true;
+    var currYear = new Date().getFullYear();
+    var currMonth = new Date().getMonth() + 1;
+    var currDay = new Date().getDate();
+    var currDate = currYear + '-' + currMonth + '-' + currDay;
+    var cutExpDate = exp.slice(0, 10);
+    if(moment(cutExpDate).isSameOrAfter(currDate)){
+      return true;
+    }
+    return false;
+    // return true;
   }
 
   

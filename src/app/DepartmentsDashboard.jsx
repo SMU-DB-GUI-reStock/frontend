@@ -3,10 +3,9 @@
 
 import React from 'react';
 import {DepartmentsList } from './DepartmentsList';
-
 import {DepartmentRepository, EmployeeRepository} from './../api';
-
 import { Redirect, Link } from 'react-router-dom';
+import Logo from '../images/logo.png';
 
 
 export class DepartmentsDashboard extends React.Component{
@@ -35,6 +34,7 @@ export class DepartmentsDashboard extends React.Component{
             return <Redirect to={ this.state.redirect } />
         }
         return<>
+            <img src={Logo} style={{width:'50%'}} alt="restock logo"></img>
             <Link to="/">
                     <button className="btn float-right">Logout</button>
             </Link>
@@ -50,7 +50,10 @@ export class DepartmentsDashboard extends React.Component{
             <h1> Departments</h1>
             <DepartmentsList departments={this.state.departments}/>
             <Link to={{pathname:"/addEmployee", state: {departments: this.state.departments}}}>
-                <button type="button" className="btn btn-secondary btn-block">Add an Employee</button>
+                <button type="button" className="btn btn-primary btn-block">Add an Employee</button>
+            </Link>
+            <Link to="/Home">
+                    <button type="button" className="btn btn-secondary btn-block">Go back</button>
             </Link>
         </>
     }
