@@ -29,19 +29,19 @@ export class Home extends React.Component{
                 <div className="container">
                     <div>
                             <Link to="/ProductsList">
-                                <button className="btn btn-block btn-primary btn-lg">View Inventory</button>
+                                <button className="btn btn-block btn-primary btn-lg">Inventory</button>
                             </Link>
                         </div>
 
                     <div className="row">
                         <div className="col">
                             <Link to="/Departments">
-                                <button className="btn btn-block btn-secondary btn-lg">View Departments</button>
+                                <button className="btn btn-block btn-secondary btn-lg">Departments</button>
                             </Link>
                         </div>
                         <div className="col">
                             <Link to="/Sales">
-                                <button className="btn btn-block btn-secondary btn-lg">View Sales History</button>
+                                <button className="btn btn-block btn-secondary btn-lg">Sales</button>
                             </Link>
                         </div>
                     </div>

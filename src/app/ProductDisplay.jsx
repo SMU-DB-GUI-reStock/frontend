@@ -26,11 +26,11 @@ export class ProductDisplay extends React.Component{
             
             <ol className="breadcrumb border border-0 rounded mb-0">
                 <li className="breadcrumb-item"><a href="/Home">Home</a></li> 
-                <li className="breadcrumb-item"><a href="/ProductsList">Products List</a></li> 
-                <li className="breadcrumb-item active" aria-current="page"> Product </li> 
+                <li className="breadcrumb-item"><a href="/ProductsList">Products</a></li> 
+                <li className="breadcrumb-item active" aria-current="page"> {this.props.location.state.product_type_name} </li> 
             </ol>
 
-        <h1>Product Display:</h1>
+        <h1>{this.props.location.state.product_type_name} Inventory</h1>
 
         <div className="container">
             <table className="table table-striped table-condensed">

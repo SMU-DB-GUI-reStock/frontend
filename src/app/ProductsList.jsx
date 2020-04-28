@@ -13,7 +13,7 @@ export const ProductsList = props =>{
                         <th>Product Name</th>
                         <th>Price</th>
                         <th>Department</th>
-                        <th>Quantity</th>
+                        <th>Quantity in Stock</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -33,10 +33,10 @@ export const ProductsList = props =>{
                                 {product.dept_name}
                             </td>
                             <td>
-                                Quantity
+                                {product.in_stock}
                             </td>
                             <td>
-                                <Link to={'Products/' + product.product_type_id}>
+                                <Link to={{pathname: `/products/${product.product_type_id}`, state:{product_type_name : product.product_type_name}}}>
                                     <button type="button"
                                     className="btn btn-primary btn-sm">
                                         View Full Inventory
