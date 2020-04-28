@@ -25,7 +25,7 @@ export const SalesList = props =>{
                                 {sale.sale_id}
                             </td>
                             <td>
-                                {sale.sale_date.toString().split("T00:00:00.000Z")}
+                                {moment(moment(sale.sale_date, 'YYYY-MM-DD')).format('MM-DD-YYYY')}
                             </td>
                         </tr>
                     
