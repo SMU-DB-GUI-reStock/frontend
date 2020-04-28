@@ -3,7 +3,7 @@ import { EmployeeRepository } from '../api';
 import { Redirect, Link } from 'react-router-dom';
 import Logo from '../images/logo.png';
 
-export class EmployeeEditor extends React.Component {
+export class InfoEditor extends React.Component {
 
     employeeRepository = new EmployeeRepository();
 
@@ -26,9 +26,9 @@ export class EmployeeEditor extends React.Component {
     }
 
     render() {
-        if (this.state.redirect) {
-            return <Redirect to={ this.state.redirect } />
-        }
+        // if (this.state.redirect) {
+        //     return <Redirect to={ this.state.redirect } />
+        // }
         return <>
              <img src={Logo} style={{width:'50%'}} alt="restock logo"></img>
             <Link to="/">

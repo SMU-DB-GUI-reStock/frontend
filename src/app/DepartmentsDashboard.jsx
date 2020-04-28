@@ -26,7 +26,9 @@ export class DepartmentsDashboard extends React.Component{
     //             })
     //         })
     // // }
-
+    goToEdit(id){
+        this.setState({redirect: '/editEmployee'})
+    }
   
 
     render(){
@@ -48,7 +50,7 @@ export class DepartmentsDashboard extends React.Component{
             </nav>
         
             <h1> Departments</h1>
-            <DepartmentsList departments={this.state.departments}/>
+            <DepartmentsList departments={this.state.departments} goToEdit={()=>this.goToEdit()}/>
             <Link to={{pathname:"/addEmployee", state: {departments: this.state.departments}}}>
                 <button type="button" className="btn btn-primary btn-block">Add an Employee</button>
             </Link>

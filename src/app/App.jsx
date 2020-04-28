@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ItemEditorDashboard } from './ItemEditorDashboard';
 import { SalesDashboard } from './SalesDashboard';
 import { EmployeeEditor } from './EmployeeEditor';
+import { InfoEditor } from './InfoEditor';
 
 class App extends Component{
   render(){
@@ -29,6 +30,7 @@ class App extends Component{
               <Route exact path="/Products/:id" component={ ProductDisplay }/>
               <Route exact path="/Sales" component={SalesDashboard}/>
               <Route exact path="/addEmployee" component={EmployeeEditor}/>
+              <Route exact path="/editEmployee" component={InfoEditor}/>
 
             </Switch>
           </Router>

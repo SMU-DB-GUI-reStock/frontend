@@ -5,6 +5,11 @@ export class ProductSearch extends React.Component {
         product_type_name: ''
     }
 
+    resetSearch(){
+        this.props.getAllProducts();
+        this.setState({product_type_name:''});
+    }
+
     render(){
         
         return <div className="card mt-3 mb-3">
@@ -25,6 +30,11 @@ export class ProductSearch extends React.Component {
                 className="btn btn-primary" 
                 onClick={ () => this.props.onSearch(this.state) }>
                     Search
+                </button>
+                <button type="button" 
+                className="btn btn-secondary" 
+                onClick={ () => this.resetSearch() }>
+                    Cancel
                 </button>
             </div>
         </div>
