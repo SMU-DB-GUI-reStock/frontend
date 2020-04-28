@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Logo from '../images/logo.png';
 import './Login.css';
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { EmployeeRepository } from '../api';
 
 export class Login extends React.Component{
@@ -16,7 +16,7 @@ export class Login extends React.Component{
         this.userRepository.login(this.state)
             .then(x=>{
                 console.log(x);
-                if(x.data[0].Valid == 1){
+                if(x.data[0].Valid === 1){
                     alert("Login success.");
                     window.sessionStorage.setItem("loggedIn", 1);
                     this.setState({redirect: '/Home'});

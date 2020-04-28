@@ -13,7 +13,8 @@ export class ProductDisplay extends React.Component{
 
   state = {
     products: [],
-    section: ''
+    section: '',
+    today:''
   };
 
     render(){
@@ -79,6 +80,13 @@ export class ProductDisplay extends React.Component{
                                 {product.exp_date}
                             </td>
                           )}
+                          {this.state.section == product.product_type_id && ( 
+                              product.exp_date < this.state.today &&(
+                              <td>
+                                  <button type="button" className="btn btn-small btn-danger">Delete Expired Item</button>
+                              </td>
+                          ))}
+                        
                         
                         </tr>
                     )}
@@ -107,7 +115,9 @@ export class ProductDisplay extends React.Component{
             this.setState(this.state.products = products.data);
             this.setState({section: this.props.match.params.id})
           });
-  }
-
+      this.setState({today: new Date()});
     }
+    
+
+  }
   

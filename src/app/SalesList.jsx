@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {Sale} from '../models';
 import {ProductType, Product} from '../models';
 import {SaleRepository} from './../api/SalesRepository';

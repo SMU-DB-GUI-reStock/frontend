@@ -13,7 +13,7 @@ export class SalesDashboard extends React.Component{
     onSearch(params){
         this.salesRepository.getSales(params)
         .then(sale=> {
-            this.setState(this.state.sale = sale.data);
+            this.setState({sale : sale.data});
         });
     }
 
@@ -44,12 +44,12 @@ export class SalesDashboard extends React.Component{
     }
 
     componentWillMount(){
-        if(window.sessionStorage.getItem("loggedIn") != 1){
+        if(window.sessionStorage.getItem("loggedIn") !== 1){
             alert("Not logged in");
             this.setState({ redirect: '/' });
         }
     }
-    
+
     componentDidMount(){
         this.onSearch();
     }

@@ -1,6 +1,5 @@
 //This function will generate a list of departments
 import React from 'react';
-import {Department, User} from '../models';
 import {EmployeeRepository} from './../api';
 
 export class DepartmentsList extends React.Component{
