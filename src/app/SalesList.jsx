@@ -26,6 +26,7 @@ export const SalesList = props =>{
                             <td>
                                 {sale.sale_date}
                             </td>
+                          
                         </tr>
                     
                     )}
