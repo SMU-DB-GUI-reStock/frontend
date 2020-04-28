@@ -13,7 +13,16 @@ export class ProductsDashboard extends React.Component{
     };
 
     onSearch(params){
-        this.productRepository.getProductTypes(params)
+        this.productRepository.getProductTypebyName(params.product_type_name)
+        .then(products=> {
+            debugger;
+            this.setState({products : products.data});
+        });
+      
+    }
+
+    getAllProducts(){
+        this.productRepository.getProductTypes()
         .then(products=> {
             this.setState({products : products.data});
 
@@ -41,7 +50,7 @@ export class ProductsDashboard extends React.Component{
                 <li className="breadcrumb-item active" aria-current="page"> Products List </li> 
             </ol>
             
-            <ProductSearch onSearch={params=>this.onSearch(params)} />
+            <ProductSearch onSearch={params=>this.onSearch(params)} getAllProducts={() => this.getAllProducts()}/>
             
             <h1 style={{padding: 10}}>What we carry:</h1>
             
@@ -60,6 +69,6 @@ export class ProductsDashboard extends React.Component{
         }
     }
     componentDidMount(){
-        this.onSearch();
+       this.getAllProducts();
     }
 }

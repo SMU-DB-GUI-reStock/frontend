@@ -31,11 +31,17 @@ export class ProductDisplay extends React.Component{
     return false;
   }
 
-  onSubmit() {
+  onSubmit(id) {
     this.productRepository
-    .deleteProduct(this.state.product_id)
+    .deleteProduct(id)
     .then(() => {
         alert("Item Deleted");
+    });
+
+    this.productRepository.getProducts()
+    .then(products=> {
+      this.setState(this.state.products = products.data);
+      this.setState({section: this.props.match.params.id})
     });
 }
 
@@ -125,7 +131,7 @@ export class ProductDisplay extends React.Component{
                               {this.isExpired(product.exp_date) && (
                                 <button type="button"
                                     className="btn btn-danger btn-sm"
-                                    onClick={ () => this.onSubmit() }>
+                                    onClick={ () => this.onSubmit(product.product_id) }>
                                         X
                                     </button>
                               )} 

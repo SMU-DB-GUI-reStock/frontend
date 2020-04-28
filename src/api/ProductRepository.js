@@ -38,6 +38,18 @@ export class ProductRepository{
     }
 
 
+    getProductTypebyName(name){
+        var config = this.config;
+        return new Promise((resolve, reject)=>{
+            axios.get(`${this.url}/product_types/name/${name}`, config)
+                .then(x=>resolve(x.data))
+                .catch(x=>{
+                    alert(x);
+                    reject(x);
+                });
+        });
+    }
+
     //THIS IS THE TEMPLATE!! :-)
     //POST productType
     addProductType(product_type){
@@ -73,7 +85,7 @@ export class ProductRepository{
 
 deleteProduct(product_id){
         return new Promise((resolve, reject) => {
-            axios.delete(`${this.url}/product_types/${product_id}`)
+            axios.delete(`${this.url}/products/${product_id}`)
                 .then(x => resolve(x.data))
                 .catch(x => {
                     alert(x); // handle error

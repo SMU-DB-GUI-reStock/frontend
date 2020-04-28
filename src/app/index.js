@@ -11,3 +11,4 @@ export * from './ItemEditor';
 export * from './ItemEditorDashboard';
 export * from './SalesDashboard';
 export * from './EmployeeEditor';
+export * from './InfoEditor';

@@ -1,14 +1,15 @@
 //This function will generate a list of departments
 import React from 'react';
 import {EmployeeRepository} from './../api';
-
+import { Link, Redirect } from 'react-router-dom';
 export class DepartmentsList extends React.Component{
 
     employeeRepository = new EmployeeRepository();
 
     state = {
         employees: [],
-        dept_id: 1
+        dept_id: '', 
+        clicked:false
     }
 
     getEmployees(dept_id){
@@ -20,7 +21,11 @@ export class DepartmentsList extends React.Component{
     }
 
 
+
     render(){
+        if (this.state.redirect) {
+            return <Redirect to={ this.state.redirect } />
+        }
         return <>
 
             <div className="container">
@@ -41,29 +46,32 @@ export class DepartmentsList extends React.Component{
                                 
                                     <td>{department.manager_first} {department.manager_last}</td>
                                     <td>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target={"#"+department.dept_name} onClick={()=>this.getEmployees(department.dept_id)}>
+                                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target={"#"+department.dept_name} onClick={()=>this.getEmployees(department.dept_id)}>
                                         View employees
                                     </button>
 
                                         <div key={department.dept_id} class="modal fade" id={department.dept_name} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
-                                                 <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
+                                                 <div className="modal-dialog" role="document">
+                                                    <div className="modal-content">
 
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">{department.dept_name} Department Employees</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <div className="modal-header">
+                                                            <h5 className="modal-title" id="exampleModalLabel">{department.dept_name} Department Employees</h5>
+                                                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
 
-                                                        <div class="modal-body">
+                                                        <div className="modal-body">
                                                             <table>
                                                                 <thead>
                                                                     <tr>
                                                                         <th>First Name</th>
                                                                         <th>Last Name</th>
                                                                         <th>Email</th>
+                                                                        {/* {this.state.clicked && 
+                                                                        <th>&nbsp;</th>
+                                                                        } */}
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -72,15 +80,19 @@ export class DepartmentsList extends React.Component{
                                                                             <td>{employee.first}</td>
                                                                             <td>{employee.last}</td>
                                                                             <td>{employee.email}</td>
+                                                            
+                                                                            
                                                                         </tr>
 
                                                                     )}
                                                                 </tbody>
                                                             </table>
                                                         </div> 
-
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                                    
+                                                        <div className="modal-footer">
+                                                            
+                                                            {/* <button type="button" className="btn btn-secondary" onClick={()=> this.setState({clicked:true})}>Edit</button> */}
+                                                            <button type="button" className="btn btn-primary" onClick={()=> this.setState({clicked:false})} data-dismiss="modal">Close</button>
                                                         </div>
 
                                                     </div>
@@ -93,36 +105,6 @@ export class DepartmentsList extends React.Component{
                     </tbody>
                 </table>
 
-                {/* {this.props.departments.map(department =>
-                    <div key={department.dept_id}>
-          
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target={"#"+department.dept_name}>
-                        Launch demo modal
-                        </button>
-
-                        <div class="modal fade" id={department.dept_name} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-
-                )} */}
                    
              </div>
         </>
