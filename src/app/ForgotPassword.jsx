@@ -7,6 +7,10 @@ import { Redirect, Link } from 'react-router-dom';
 
 
 export class ForgotPassword extends React.Component{
+
+  state={
+    
+  }
     render(){
       if (this.state.redirect) {
         return <Redirect to={ this.state.redirect } />

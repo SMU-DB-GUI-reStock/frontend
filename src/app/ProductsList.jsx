@@ -30,7 +30,7 @@ export const ProductsList = props =>{
                                 ${product.price}.00
                             </td>
                             <td>
-                                {product.dept_id}
+                                {product.dept_name}
                             </td>
                             <td>
                                 Quantity

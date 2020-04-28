@@ -47,7 +47,7 @@ export class DepartmentsDashboard extends React.Component{
                 </ol>
             </nav>
         
-            <h1>Departments</h1>
+            <h1> Departments</h1>
             <DepartmentsList departments={this.state.departments}/>
         </>
     }

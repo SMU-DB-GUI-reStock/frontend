@@ -39,6 +39,20 @@ export class EmployeeRepository{
         });
     }
 
+     //GET /employees
+     getEmployeesbyDept(dept_id){
+        var config = this.config;
+        config.params = dept_id;
+        return new Promise((resolve, reject)=>{
+            axios.get(`${this.url}/users/department/${dept_id}`, config)
+                .then(x=>resolve(x.data))
+                .catch(x=>{
+                    alert(x);
+                    reject(x);
+                });
+        });
+    }
+
     getEmployee(id){
         var config = this.config;
         return new Promise((resolve, reject)=>{

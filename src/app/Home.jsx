@@ -21,7 +21,7 @@ export class Home extends React.Component{
                 </Link>
             </nav>
             <div className="jumbotron">
-                <img src={Logo} style={{width:'50%'}}></img>
+                <img src={Logo} style={{width:'50%'}} alt="restock logo"></img>
                 <h1 className="jumbotron">reStock Home</h1>
                 <p className="lead">What would you like to do today?</p>
                 <hr className="my-4"/>
@@ -48,5 +48,12 @@ export class Home extends React.Component{
             </div>
         </>
         );
+    }
+
+    componentWillMount(){
+        if(window.sessionStorage.getItem("loggedIn") != 1){
+            alert("Not logged in");
+            this.setState({ redirect: '/' });
+        }
     }
 }

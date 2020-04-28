@@ -77,4 +77,9 @@ export class Login extends React.Component{
             </>
         );
     }
+
+    componentWillMount(){
+        window.sessionStorage.setItem("loggedIn", 0);
+    }
 }
+
