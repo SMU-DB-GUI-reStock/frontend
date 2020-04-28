@@ -31,6 +31,14 @@ export class ProductDisplay extends React.Component{
     return false;
   }
 
+  onSubmit() {
+    this.productRepository
+    .deleteProduct(this.state.product_id)
+    .then(() => {
+        alert("Item Deleted");
+    });
+}
+
   
 
   state = {
@@ -105,7 +113,7 @@ export class ProductDisplay extends React.Component{
                                     <Badge variant="danger">Expired</Badge> 
                                 )}
                                 {!(this.isExpired(product.exp_date)) && (
-                                  product.exp_date
+                                  this.getExpiration(product.exp_date)
                                 )}
                             </td>
                           )}
@@ -116,7 +124,8 @@ export class ProductDisplay extends React.Component{
                             <td>
                               {this.isExpired(product.exp_date) && (
                                 <button type="button"
-                                    className="btn btn-danger btn-sm">
+                                    className="btn btn-danger btn-sm"
+                                    onClick={ () => this.onSubmit() }>
                                         X
                                     </button>
                               )} 
