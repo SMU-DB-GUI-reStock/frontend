@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import  moment  from 'moment';
 import {Sale} from '../models';
 import {ProductType, Product} from '../models';
 import {SaleRepository} from './../api/SalesRepository';
@@ -24,7 +25,7 @@ export const SalesList = props =>{
                                 {sale.sale_id}
                             </td>
                             <td>
-                                {sale.sale_date}
+                                {sale.sale_date.toString().split("T00:00:00.000Z")}
                             </td>
                           
                         </tr>
