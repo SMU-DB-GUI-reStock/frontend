@@ -36,7 +36,8 @@ export class ProductDisplay extends React.Component{
 
   state = {
     products: [],
-    section: ''
+    section: '',
+    today:''
   };
 
     render(){
@@ -126,7 +127,6 @@ export class ProductDisplay extends React.Component{
                             </td>
                           )}
                           
-
                         
                         </tr>
                     )}
@@ -155,7 +155,9 @@ export class ProductDisplay extends React.Component{
             this.setState(this.state.products = products.data);
             this.setState({section: this.props.match.params.id})
           });
-  }
-
+      this.setState({today: new Date()});
     }
+    
+
+  }
   

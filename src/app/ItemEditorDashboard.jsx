@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { ProductRepository, DepartmentRepository } from '../api';
+import { DepartmentRepository } from '../api';
 import { ItemEditor } from './ItemEditor';
 
 
@@ -25,12 +24,12 @@ export class ItemEditorDashboard extends React.Component {
     }
 
     componentWillMount(){
-        if(window.sessionStorage.getItem("loggedIn") != 1){
+        if(window.sessionStorage.getItem("loggedIn") !== 1){
             alert("Not logged in");
             this.setState({ redirect: '/' });
         }
     }
-    
+
     componentDidMount() {
         this.departmentRepository.getDepartments()
         .then( departments=>{
