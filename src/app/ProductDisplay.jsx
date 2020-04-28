@@ -20,16 +20,15 @@ export class ProductDisplay extends React.Component{
   }
 
   isExpired(exp){
-  // var currYear = new Date().getFullYear();
-  // var currMonth = new Date().getMonth() + 1;
-  // var currDay = new Date().getDate();
-  // var currDate = currYear + '-' + currMonth + '-' + currDay;
-  // var cutExpDate = exp.slice(0, 10);
-  // if(moment(cutExpDate).isSameOrAfter(currDate)){
-  //   return true;
-  // }
-  // return false;
-  return true;
+  var currYear = new Date().getFullYear();
+  var currMonth = new Date().getMonth() + 1;
+  var currDay = new Date().getDate();
+  var currDate = currYear + '-' + currMonth + '-' + currDay;
+  var cutExpDate = exp.slice(0, 10);
+  if(moment(cutExpDate).isSameOrBefore(currDate)){
+    return true;
+  }
+  return false;
   }
 
   
@@ -102,15 +101,12 @@ export class ProductDisplay extends React.Component{
                           )}
                           {this.state.section == product.product_type_id && ( 
                             <td>
-                                {this.getExpiration(product.exp_date)}
-                            </td>
-                          )}
-                          {this.state.section == product.product_type_id && this.state.section !== 'sold' && (  
-                            <td>
-                                {this.isExpired(product.exp_date) && (
-                                  <Badge variant="danger">Expired</Badge>
-                                )} 
-
+                                {this.isExpired(product.exp_date) && this.state.section !== 'sold' && ( 
+                                    <Badge variant="danger">Expired</Badge> 
+                                )}
+                                {!(this.isExpired(product.exp_date)) && (
+                                  product.exp_date
+                                )}
                             </td>
                           )}
                           {this.state.section == product.product_type_id && ( 
