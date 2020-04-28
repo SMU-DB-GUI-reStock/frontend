@@ -12,6 +12,7 @@ import { ProductDisplay } from './ProductDisplay';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ItemEditorDashboard } from './ItemEditorDashboard';
 import { SalesDashboard } from './SalesDashboard';
+import { EmployeeEditor } from './EmployeeEditor';
 
 class App extends Component{
   render(){
@@ -27,6 +28,7 @@ class App extends Component{
               <Route exact path="/Departments" component={DepartmentsDashboard}/>
               <Route exact path="/Products/:id" component={ ProductDisplay }/>
               <Route exact path="/Sales" component={SalesDashboard}/>
+              <Route exact path="/addEmployee" component={EmployeeEditor}/>
 
             </Switch>
           </Router>

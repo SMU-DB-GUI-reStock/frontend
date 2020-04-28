@@ -76,4 +76,23 @@ export class EmployeeRepository{
                     })
             })
         }
+
+        addEmployee(params){
+            return new Promise((resolve, reject)=>{
+                axios.post(`${this.url}/users`, {
+                    first: params.first,
+                    last: params.last,
+                    email: params.email,
+                    password: params.password,
+                    type: params.type,
+                    dept_id: params.dept_id
+                })
+                    .then(x=>resolve(x.data))
+                    .catch(x=>{
+                        console.log(x);
+                        alert(x);
+                        reject(x);
+                    })
+            })
+        }
 }

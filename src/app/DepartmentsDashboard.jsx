@@ -49,6 +49,9 @@ export class DepartmentsDashboard extends React.Component{
         
             <h1> Departments</h1>
             <DepartmentsList departments={this.state.departments}/>
+            <Link to={{pathname:"/addEmployee", state: {departments: this.state.departments}}}>
+                <button type="button" className="btn btn-secondary btn-block">Add an Employee</button>
+            </Link>
         </>
     }
 
