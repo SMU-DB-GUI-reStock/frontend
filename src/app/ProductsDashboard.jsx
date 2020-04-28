@@ -23,6 +23,9 @@ export class ProductsDashboard extends React.Component{
             <Link to="/">
                     <button className="btn float-right">Logout</button>
             </Link>
+            <Link to="/addItem">
+                    <button className="btn float-right">+</button>
+            </Link>
             
             <ol className="breadcrumb border border-0 rounded mb-0">
                 <li className="breadcrumb-item"><a href="/Home">Home</a></li> 
@@ -34,6 +37,7 @@ export class ProductsDashboard extends React.Component{
             <h1 style={{padding: 10}}>What we carry:</h1>
             
             <ProductsList products={this.state.products}/>
+
         </>
     }
 

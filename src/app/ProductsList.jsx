@@ -36,7 +36,7 @@ export const ProductsList = props =>{
                                 Quantity
                             </td>
                             <td>
-                                <Link to={'Products/' + product.product_type_id} section = {3}>
+                                <Link to={'Products/' + product.product_type_id}>
                                     <button type="button"
                                     className="btn btn-primary btn-sm">
                                         View Full Inventory
