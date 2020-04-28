@@ -10,11 +10,11 @@ export class SaleRepository{
    };
  
    //GET /sales
-   getSales(id){
+   getSales(params){
        var config = this.config;
-       config.id = id;
+       config.params = params;
        return new Promise((resolve, reject)=>{
-           axios.get(`${this.url}/sales`, config)
+           axios.get(`${this.url}/sales/`, config)
                .then(x=>resolve(x.data))
                .catch(x=>{
                    alert(x);

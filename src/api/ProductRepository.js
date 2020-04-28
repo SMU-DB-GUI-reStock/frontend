@@ -39,6 +39,7 @@ export class ProductRepository{
 
     //POST productType
     addProductType(product_type){
+        var config = this.config;
         return new Promise((resolve, reject) => {
             axios.post(`${this.url}/product_types`, product_type, this.config)
                 .then(x => resolve(x.data))

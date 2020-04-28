@@ -25,7 +25,7 @@ export class ItemEditorDashboard extends React.Component {
         return <>
             <ol className="breadcrumb border border-0 rounded mb-0">
                 <li className="breadcrumb-item"><a href="/Home">Home</a></li> 
-                <li className="breadcrumb-item"><a href="/products">Inventory</a></li>
+                <li className="breadcrumb-item"><a href="/ProductsList">Inventory</a></li>
                 <li className="breadcrumb-item active" aria-current="page"> Add New Product </li> 
             </ol>
             <ItemEditor departments={this.state.departments}/>

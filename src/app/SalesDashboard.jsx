@@ -10,8 +10,8 @@ export class SalesDashboard extends React.Component{
         sale: []
     };
 
-    onSearch(id){
-        this.salesRepository.getSales(id)
+    onSearch(params){
+        this.salesRepository.getSales(params)
         .then(sale=> {
             this.setState(this.state.sale = sale.data);
         });

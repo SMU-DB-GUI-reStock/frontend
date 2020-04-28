@@ -9,11 +9,28 @@ export class EmployeeRepository{
         
     };
 
+    login(params){
+        debugger;
+        var config = this.config;
+        config.params = params;
+        return new Promise((resolve, reject)=>{
+            axios.get(`${this.url}/login`, config)
+                .then(x=>{resolve(x.data);
+                    console.log("in then");
+                debugger;})
+                .catch(x=>{
+                    console.log("in catcg");
+                    alert(x);
+                    reject(x);
+                });
+        });
+    }
+
     //GET /employees
     getEmployees(){
         var config = this.config;
         return new Promise((resolve, reject)=>{
-            axios.get(`${this.url}/employees`, config)
+            axios.get(`${this.url}/users`, config)
                 .then(x=>resolve(x.data))
                 .catch(x=>{
                     alert(x);
@@ -23,6 +40,7 @@ export class EmployeeRepository{
     }
 
     getEmployee(id){
+        var config = this.config;
         return new Promise((resolve, reject)=>{
             axios.get(`${this.url}/users/${id}`)
                 .then(x=>resolve(x.data))
@@ -32,4 +50,16 @@ export class EmployeeRepository{
                 })
         })
     }
+
+        //DELETE /users/{id}
+        deleteEmployee(id){
+            return new Promise((resolve, reject)=>{
+                axios.delete(`${this.url}/users/${id}`)
+                    .then(x=>resolve(x.data))
+                    .catch(x=>{
+                        alert(x);
+                        reject(x);
+                    })
+            })
+        }
 }

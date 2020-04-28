@@ -8,7 +8,7 @@ export class ProductSearch extends React.Component {
     render(){
         return <div className="card mt-3 mb-3">
         <div className="card-body">
-            <h3 className="card-title">Search for a Product</h3>
+            <h3 className="card-title">Search for a Product by Name</h3>
             <div className="form-group">
                 <label htmlFor="search_name">Name</label>
                     <input type="text"
@@ -16,6 +16,7 @@ export class ProductSearch extends React.Component {
                         name="search_name"
                         className="form-control"
                         value={ this.state.name }
+                        placeholder="Product Name"
                         onChange={ e => this.setState( { product_type_name: e.target.value } ) } />
             </div>
             <div className="mt-2">
