@@ -3,12 +3,35 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { ProductRepository } from '../api';
+import  moment  from 'moment';
+import { Badge } from 'react-bootstrap';
 
 //ADD PRODUCT NAME TO TOP OF PAGE
 
 export class ProductDisplay extends React.Component{
 
   productRepository = new ProductRepository();
+
+  getExpiration(exp){
+    var year = exp.slice(0,4)
+    var month = exp.slice(5,7)
+    var day = exp.slice(8,10)
+    return month + '-' + day + '-' + year;
+  }
+
+  isExpired(exp){
+  // var currYear = new Date().getFullYear();
+  // var currMonth = new Date().getMonth() + 1;
+  // var currDay = new Date().getDate();
+  // var currDate = currYear + '-' + currMonth + '-' + currDay;
+  // var cutExpDate = exp.slice(0, 10);
+  // if(moment(cutExpDate).isSameOrAfter(currDate)){
+  //   return true;
+  // }
+  // return false;
+  return true;
+  }
+
   
 
   state = {
@@ -43,6 +66,8 @@ export class ProductDisplay extends React.Component{
                         <th>Sale</th>
                         <th>Expiration</th>
                         <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,9 +101,32 @@ export class ProductDisplay extends React.Component{
                           )}
                           {this.state.section == product.product_type_id && ( 
                             <td>
-                                {product.exp_date}
+                                {this.getExpiration(product.exp_date)}
                             </td>
                           )}
+                          {this.state.section == product.product_type_id && this.state.section !== 'sold' && (  
+                            <td>
+                                {this.isExpired(product.exp_date) && (
+                                  <Badge variant="danger">Expired</Badge>
+                                )} 
+
+                            </td>
+                          )}
+                          {this.state.section == product.product_type_id && ( 
+                            <td></td>
+                          )}
+                          {this.state.section == product.product_type_id && this.state.section !== 'sold' && (
+                            <td>
+                              {this.isExpired(product.exp_date) && (
+                                <button type="button"
+                                    className="btn btn-danger btn-sm">
+                                        X
+                                    </button>
+                              )} 
+                            </td>
+                          )}
+                          
+
                         
                         </tr>
                     )}
