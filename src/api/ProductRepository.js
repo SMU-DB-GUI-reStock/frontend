@@ -70,4 +70,16 @@ export class ProductRepository{
                 });
         });
     }
+
+deleteProduct(product_id){
+        return new Promise((resolve, reject) => {
+            axios.delete(`${this.url}/product_types/${product_id}`)
+                .then(x => resolve(x.data))
+                .catch(x => {
+                    alert(x); // handle error
+                    reject(x);
+                });
+        });
+    }
 }
+
