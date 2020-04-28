@@ -85,7 +85,7 @@ export class ProductRepository{
 
 deleteProduct(product_id){
         return new Promise((resolve, reject) => {
-            axios.delete(`${this.url}/product_types/${product_id}`)
+            axios.delete(`${this.url}/products/${product_id}`)
                 .then(x => resolve(x.data))
                 .catch(x => {
                     alert(x); // handle error

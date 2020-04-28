@@ -26,9 +26,9 @@ export class DepartmentsDashboard extends React.Component{
     //             })
     //         })
     // // }
-    goToEdit(id){
-        this.setState({redirect: '/editEmployee'})
-    }
+    // goToEdit(id){
+    //     this.setState({redirect: '/editEmployee'});
+    // }
   
 
     render(){

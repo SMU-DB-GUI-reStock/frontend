@@ -15,6 +15,7 @@ export class ProductsDashboard extends React.Component{
     onSearch(params){
         this.productRepository.getProductTypebyName(params.product_type_name)
         .then(products=> {
+            debugger;
             this.setState({products : products.data});
         });
       
