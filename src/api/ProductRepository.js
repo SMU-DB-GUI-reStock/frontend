@@ -38,9 +38,9 @@ export class ProductRepository{
     }
 
     //POST productType
-    addProductTypes(product_type){
+    addProductType(product_type){
         return new Promise((resolve, reject) => {
-            axios.post(`${this.url}`, product_type, this.config)
+            axios.post(`${this.url}/product_types`, product_type, this.config)
                 .then(x => resolve(x.data))
                 .catch(x => {
                     alert(x); // handle error
@@ -50,4 +50,14 @@ export class ProductRepository{
     }
 
 
+    deleteProductType(product_type_id){
+        return new Promise((resolve, reject) => {
+            axios.delete(`${this.url}/product_types/${product_type_id}`, this.config)
+                .then(x => resolve(x.data))
+                .catch(x => {
+                    alert(x); // handle error
+                    reject(x);
+                });
+        });
+    }
 }

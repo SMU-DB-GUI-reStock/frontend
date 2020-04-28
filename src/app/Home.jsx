@@ -16,7 +16,7 @@ export class Home extends React.Component{
                 <img src={Logo} style={{width:'50%'}}></img>
                 <h1 className="jumbotron">reStock Home</h1>
                 <p className="lead">What would you like to do today?</p>
-                <hr class="my-4"/>
+                <hr className="my-4"/>
                 <p>Please select from the following options:</p>
                 <div className="container">
                     <div className="row">

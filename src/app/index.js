@@ -9,3 +9,4 @@ export * from './ProductsList';
 export * from './SalesList';
 export * from './ItemEditor';
 export * from './ItemEditorDashboard';
+export * from './SalesDashboard';

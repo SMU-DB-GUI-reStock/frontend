@@ -47,19 +47,4 @@ export class DepartmentRepository{
         })
     }
 
-
-
-
-
-    //this needs to go with product http requests
-    // getProduct(id){
-    //     return new Promise((resolve, reject)=>{
-    //         axios.get(`${this.url}/inventory/${id}`)
-    //             .then(x=>resolve(x.data))
-    //             .catch(x=>{
-    //                 alert(x);
-    //                 reject(x);
-    //             })
-    //     })
-    // }
 }
