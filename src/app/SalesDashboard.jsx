@@ -1,6 +1,6 @@
 import React from 'react';
 import {SalesList } from './SalesList';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import {SaleRepository} from './../api';
 
 export class SalesDashboard extends React.Component{
@@ -18,6 +18,9 @@ export class SalesDashboard extends React.Component{
     }
 
     render(){
+        if (this.state.redirect) {
+            return <Redirect to={ this.state.redirect } />
+        }
         return<>
             <Link to="/">
                     <button className="btn float-right">Logout</button>
@@ -40,7 +43,13 @@ export class SalesDashboard extends React.Component{
         </>
     }
 
-
+    componentWillMount(){
+        if(window.sessionStorage.getItem("loggedIn") != 1){
+            alert("Not logged in");
+            this.setState({ redirect: '/' });
+        }
+    }
+    
     componentDidMount(){
         this.onSearch();
     }

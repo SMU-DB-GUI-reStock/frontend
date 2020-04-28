@@ -91,6 +91,16 @@ export class ProductDisplay extends React.Component{
         
       );
     }
+
+
+    //prevents users who aren't logged in from accessing page
+    componentWillMount(){
+      if(window.sessionStorage.getItem("loggedIn") != 1){
+          alert("Not logged in");
+          this.setState({ redirect: '/' });
+      }
+    }
+
     componentDidMount(){
       this.productRepository.getProducts()
           .then(products=> {

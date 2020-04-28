@@ -37,23 +37,32 @@ export class ProductRepository{
         });
     }
 
+
+    //THIS IS THE TEMPLATE!! :-)
     //POST productType
     addProductType(product_type){
-        var config = this.config;
         return new Promise((resolve, reject) => {
-            axios.post(`${this.url}/product_types`, product_type, this.config)
-                .then(x => resolve(x.data))
-                .catch(x => {
-                    alert(x); // handle error
-                    reject(x);
-                });
+            axios.post(`${this.url}/product_types`, {
+                product_type_name: product_type.product_type_name,
+                dept_id: product_type.dept_id,
+                price: product_type.price
+              })
+              .then(x=> {
+                  console.log(x);
+                  resolve(x.data);
+              })
+              .catch(x=>{
+                  console.log(x);
+                  alert(x);
+                  reject(x);
+              }
+              );
         });
     }
 
-
     deleteProductType(product_type_id){
         return new Promise((resolve, reject) => {
-            axios.delete(`${this.url}/product_types/${product_type_id}`, this.config)
+            axios.delete(`${this.url}/product_types/${product_type_id}`)
                 .then(x => resolve(x.data))
                 .catch(x => {
                     alert(x); // handle error

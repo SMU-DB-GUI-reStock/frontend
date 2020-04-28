@@ -6,7 +6,7 @@ import {DepartmentsList } from './DepartmentsList';
 
 import {DepartmentRepository, EmployeeRepository} from './../api';
 
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 
 export class DepartmentsDashboard extends React.Component{
@@ -31,6 +31,9 @@ export class DepartmentsDashboard extends React.Component{
   
 
     render(){
+        if (this.state.redirect) {
+            return <Redirect to={ this.state.redirect } />
+        }
         return<>
             <Link to="/">
                     <button className="btn float-right">Logout</button>
@@ -47,6 +50,13 @@ export class DepartmentsDashboard extends React.Component{
             <h1>Departments</h1>
             <DepartmentsList departments={this.state.departments}/>
         </>
+    }
+
+    componentWillMount(){
+        if(window.sessionStorage.getItem("loggedIn") != 1){
+            alert("Not logged in");
+            this.setState({ redirect: '/' });
+        }
     }
 
     componentDidMount(){

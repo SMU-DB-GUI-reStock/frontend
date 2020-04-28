@@ -10,16 +10,16 @@ export class EmployeeRepository{
     };
 
     login(params){
-        debugger;
-        var config = this.config;
-        config.params = params;
+        console.log(params);
         return new Promise((resolve, reject)=>{
-            axios.get(`${this.url}/login`, config)
+            axios.post(`${this.url}/login`, {
+                email: params.email,
+                password: params.password
+            })
                 .then(x=>{resolve(x.data);
-                    console.log("in then");
-                debugger;})
+                })
                 .catch(x=>{
-                    console.log("in catcg");
+                    console.log(x);
                     alert(x);
                     reject(x);
                 });

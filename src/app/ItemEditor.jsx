@@ -14,13 +14,12 @@ export class ItemEditor extends React.Component {
         price: ''
     };
 
-
     onSubmit() {
         this.productRepository
         .addProductType(this.state)
         .then(() => {
             alert("Product Added");
-            this.setState({ redirect: '/Products' });
+            this.setState({ redirect: '/ProductsList' });
         });
     }
 
@@ -76,6 +75,7 @@ export class ItemEditor extends React.Component {
             </form>
         </>;
     }
+
 
     componentDidMount() {
     }

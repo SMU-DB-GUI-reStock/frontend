@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Logo from '../images/logo.png';
 import './Login.css';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 import { EmployeeRepository } from '../api';
 
 export class Login extends React.Component{
@@ -15,9 +15,10 @@ export class Login extends React.Component{
    getCredentials(){
         this.userRepository.login(this.state)
             .then(x=>{
-                debugger;
+                console.log(x);
                 if(x.data[0].Valid == 1){
                     alert("Login success.");
+                    window.sessionStorage.setItem("loggedIn", 1);
                     this.setState({redirect: '/Home'});
                 }else{
                     alert("Login failed.");
@@ -27,6 +28,9 @@ export class Login extends React.Component{
    }
 
     render(){
+        if (this.state.redirect) {
+            return <Redirect to={ this.state.redirect } />
+        }
         return(<>
             <div className="App">
                 <header className="App-header">

@@ -1,6 +1,6 @@
 import React from 'react';
 import {ProductsList } from './ProductsList';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import {ProductRepository} from './../api';
 import { ProductSearch } from './ProductSearch';
 
@@ -19,6 +19,9 @@ export class ProductsDashboard extends React.Component{
     }
 
     render(){
+        if (this.state.redirect) {
+            return <Redirect to={ this.state.redirect } />
+        }
         return<>
             <Link to="/">
                     <button className="btn float-right">Logout</button>
@@ -44,7 +47,12 @@ export class ProductsDashboard extends React.Component{
         </>
     }
 
-
+    componentWillMount(){
+        if(window.sessionStorage.getItem("loggedIn") != 1){
+            alert("Not logged in");
+            this.setState({ redirect: '/' });
+        }
+    }
     componentDidMount(){
         this.onSearch();
     }

@@ -2,12 +2,15 @@
 
 import React from 'react';
 import './ForgotPassword.css';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 
 
 export class ForgotPassword extends React.Component{
     render(){
+      if (this.state.redirect) {
+        return <Redirect to={ this.state.redirect } />
+      }
       return (
         <div className="contain jumbotron" style={{background: '#50E3C2', height: '47.4rem'}}>
             <h1 className="display-4">Forget your password?</h1>

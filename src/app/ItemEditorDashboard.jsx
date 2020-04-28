@@ -12,14 +12,6 @@ export class ItemEditorDashboard extends React.Component {
         departments: []
     };
 
-    // onSubmit() {
-    //     this.productRepository
-    //     .addProductType(this.state.name, this.state.department, this.state.price)
-    //     .then(() => {
-    //         alert("Product Added");
-    //         this.setState({ redirect: '/products' });
-    //     });
-    // }
 
     render() {
         return <>
@@ -32,6 +24,13 @@ export class ItemEditorDashboard extends React.Component {
         </>;
     }
 
+    componentWillMount(){
+        if(window.sessionStorage.getItem("loggedIn") != 1){
+            alert("Not logged in");
+            this.setState({ redirect: '/' });
+        }
+    }
+    
     componentDidMount() {
         this.departmentRepository.getDepartments()
         .then( departments=>{
